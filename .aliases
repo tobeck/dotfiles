@@ -3,7 +3,6 @@ alias src='source ~/.bashrc'
 alias :q='exit'
 
 alias wget="curl -O"
-alias octave='exec "/Applications/Octave.app/Contents/Resources/bin/octave"'
 
 alias l='ls -lartp'
 alias la='ls -la'
@@ -15,8 +14,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-alias dots='cd ~/dotfiles'
-alias dotfiles='cd ~/dotfiles'
+alias dots='cd ~/src/tobeck.github.com/dotfiles'
+alias dotfiles='cd ~/src/tobeck.github.com/dotfiles'
 
 alias cl='clear'
 
@@ -43,31 +42,13 @@ alias gdom='git diff origin/master'
 
 alias p='python'
 
-# run terminal vim from a macvim distribution
-alias vim='/Applications/MacVim/MacVim.app/Contents/MacOS/Vim'
-alias yolo='kill -9'
-
 # If you're reading this and you aren't Keegan, do this. Trust me.
-alias ali='vim ~/dotfiles/.aliases'
-alias dotup='cd ~/dotfiles && ./bootstrap.sh && cd -'
-
-# Rails specific
-alias b='bundle'
-alias be='bundle exec'
-alias rt='bundle exec rake test'
+alias ali='vim ~/src/tobeck.github.com/dotfiles/.aliases'
+alias dotup='cd ~/src/tobeck.github.com/dotfiles && ./bootstrap.sh && cd -'
 
 # tmux stuff
 alias t='tmux'
 alias tmux="TERM=screen-256color-bce tmux"
-
-alias rs='script/server'
-alias rc='bundle exec rails console'
-alias rr='rake routes | fzf'
-alias r='ruby'
-alias rake='bundle exec rake'
-alias devdown='rake dev_env_shutdown'
-alias devup='rake dev_env_startup'
-alias tf='tail -f'
 
 # But seriously, just use ack or ag
 alias grin='grep -rin'
@@ -77,8 +58,6 @@ alias grev='grep -v'
 # so things like top still work when SSHed to a remote host
 alias ssh='TERM=xterm ssh'
 
-# useful if you're debugging something really nasty
-alias bliss='bundle install; rob; script/server'
 
 alias wtf='ping google.com'
 
@@ -91,15 +70,8 @@ alias ctags="`brew --prefix`/bin/ctags"
 # signal aliases: just give them a pid
 alias quit='kill -s QUIT'
 alias usr2='kill -s USR2'
-alias cdgems='cd `rvm gemhome`'
 
 alias duh='du -h'
-
-function random_say_voice() { say -v ? | awk '{print $1}' | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' | head -1; }
-
-function nightmare() { cat /dev/urandom | head -$1 | iconv -s -c -t UTF-8 | say -v $2; }
-
-function scarytimes() { nightmare 500 `random_say_voice`; }
 
 # Tmux
 alias tns='tmux new-session -s'
@@ -110,3 +82,7 @@ alias updatedb="sudo /usr/libexec/locate.updatedb"
 alias focus="vim ~/.focush"
 
 alias tp='find ~/.tmuxp/* -type f | fzf-tmux | xargs tmuxp load -y'
+
+# aliases for the different pathes for pass
+alias pass-klarna='export PASSWORD_STORE_DIR=$HOME/.password-store-klarna'
+alias pass-reset='export PASSWORD_STORE_DIR=$HOME/.password-store/'

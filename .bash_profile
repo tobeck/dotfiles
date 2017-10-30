@@ -57,3 +57,5 @@ set editing-mode vi
 set keymap vi-command
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+source "/Users/tobias.olsson2/src/stash.int.klarna.net/tx/tranzaxis-orchestration/team-tools/helpers"

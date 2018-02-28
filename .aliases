@@ -70,3 +70,5 @@ alias pass-reset='export PASSWORD_STORE_DIR=$HOME/.password-store/'
 # Git configuration for Klarna repos
 #TODO: Move work related stuff to its own files
 alias git-work='git config user.name "Tobias Becker Olsson" && git config user.email "tobias.olsson2@klarna.com" && git config commit.gpgsign true && git config user.signingkey DC3AC62C44B13BFCC4E4A0565407A57FEEC27277'
+
+alias gpg='gpg2'

@@ -1,16 +1,6 @@
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
-# add home dir bin to path; /usr/local/bin/ for nodey stuff
-export PATH="$PATH:~/bin:Developer/usr/bin/gcc:/usr/local/bin"
-# alternate nodey stuff
-export PATH="$HOME/local/bin:$PATH"
-
-# mysql: finds mysql, mysqladmin utilities
-export PATH="$PATH:/usr/local/mysql/bin"
-export PATH="$PATH:~/scripts/bash"
-
-# for npm
-export PATH=/usr/local/share/npm/bin:$PATH
-export PATH=/usr/local/bin/lib/node_modules:$PATH
-
 export PATH=$PATH:${GOPATH//://bin:}/bin
+
+# Klarna
+export PATH="/Users/tobias.olsson2/src/stash.int.klarna.net/tx/tranzaxis-orchestration/team-tools/bin:$PATH"

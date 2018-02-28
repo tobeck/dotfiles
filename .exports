@@ -21,6 +21,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 export LANG=en_US.utf8
 
-export GOPATH=~/code/go
+export GOPATH=$HOME
+
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN

@@ -65,10 +65,11 @@ alias tp='find ~/.tmuxp/* -type f | fzf-tmux | xargs tmuxp load -y'
 
 # aliases for the different pathes for pass
 alias pass-klarna='export PASSWORD_STORE_DIR=$HOME/.password-store-klarna'
+alias pass-tobeck='export PASSWORD_STORE_DIR=$HOME/.password-store-tobeck'
 alias pass-reset='export PASSWORD_STORE_DIR=$HOME/.password-store/'
 
 # Git configuration for Klarna repos
-#TODO: Move work related stuff to its own files
 alias git-work='git config user.name "Tobias Becker Olsson" && git config user.email "tobias.olsson2@klarna.com" && git config commit.gpgsign true && git config user.signingkey DC3AC62C44B13BFCC4E4A0565407A57FEEC27277'
+alias git-tobeck='git config user.name "tobeck" && git config user.email "tobias.becker.olsson@gmail.com" && git config commit.gpgsign true && git config user.signingkey 76D81FD6667781A7EAB45CA1F59A4D32F709D441'
 
 alias gpg='gpg2'

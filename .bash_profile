@@ -1,8 +1,7 @@
+#!/usr/bin/env bash
 #
 # Inspired by and borrowed from: https://github.com/keeganlow/dotfiles/blob/master/.bash_profile
 #
-
-set -o emacs
 
 if [[ -n "$TMUX" ]]; then
     bind '"\e[1~":"\eOH"'
@@ -59,3 +58,5 @@ source "/Users/tobias.olsson2/src/stash.int.klarna.net/tx/tranzaxis-explorer/exp
 
 # Reload tmux configuration.
 tmux source-file ~/.tmux.conf
+
+export HOMEBREW_GITHUB_API_TOKEN=92509c2ea3fe8bc3514bd8e7cc79fb70e2b03d62

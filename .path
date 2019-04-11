@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=/usr/local/opt/curl/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 export PATH=$PATH:${GOPATH//://bin:}/bin
 

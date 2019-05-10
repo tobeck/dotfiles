@@ -40,6 +40,7 @@ alias g-='git checkout -'
 alias gdom='git diff origin/master'
 
 alias p='python'
+alias python='python3'
 
 # If you're reading this and you aren't Keegan, do this. Trust me.
 alias ali='vim ~/src/tobeck.github.com/dotfiles/.aliases'

@@ -56,10 +56,5 @@ source "/Users/tobias.olsson2/src/stash.int.klarna.net/tx/tranzaxis-orchestratio
 source "/Users/tobias.olsson2/src/stash.int.klarna.net/tx/tranzaxis-orchestration/terraform/aws_tf_helpers"
 source "/Users/tobias.olsson2/src/stash.int.klarna.net/tx/tranzaxis-explorer/explorer-helpers"
 
-## Tmux
-
-# Clone tmux-plugin-manager
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
 # Reload tmux configuration.
 tmux source-file ~/.tmux.conf

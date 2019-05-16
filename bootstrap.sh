@@ -1,12 +1,27 @@
 #!/usr/bin/env bash
+
 cd "$(dirname "${BASH_SOURCE}")"
+
 git pull origin master
+
 function doIt() {
 
-    rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
-        --exclude ".gitconfig" --exclude "README.md" --exclude ".gitignore" --exclude "LICENSE-MIT.txt" -av --no-perms . ~
+    rsync \
+	--exclude ".git/" \
+	--exclude ".DS_Store" \
+	--exclude "bootstrap.sh" \
+        --exclude ".gitconfig" \
+	--exclude "README.md" \
+	--exclude ".gitignore" \
+	--exclude "LICENSE-MIT.txt" \
+	-av --no-perms . ~
+
     source ~/.bashrc
+
+    # Clone tmux-plugin-manager
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
+
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
     doIt
 else
@@ -16,4 +31,5 @@ else
         doIt
     fi
 fi
+
 unset doIt

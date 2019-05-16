@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Inspired by and borrowed from: https://github.com/keeganlow/dotfiles/blob/master/.bash_profile
+# Inspired by and borrowed from: https://github.com/keeganlow/dotfiles
 #
 
 if [[ -n "$TMUX" ]]; then
@@ -55,6 +55,11 @@ set keymap vi-command
 source "/Users/tobias.olsson2/src/stash.int.klarna.net/tx/tranzaxis-orchestration/team-tools/helpers"
 source "/Users/tobias.olsson2/src/stash.int.klarna.net/tx/tranzaxis-orchestration/terraform/aws_tf_helpers"
 source "/Users/tobias.olsson2/src/stash.int.klarna.net/tx/tranzaxis-explorer/explorer-helpers"
+
+## Tmux
+
+# Clone tmux-plugin-manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Reload tmux configuration.
 tmux source-file ~/.tmux.conf

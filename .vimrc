@@ -43,8 +43,8 @@ set number
 
 " Set NERDTree to show hidden files
 let NERDTReeShowHidden=1
-
-let g:NERDTreeWinSize=60
+" Set NERDTree pane size
+let g:NERDTreeWinSize=50
 
 " Set python-mode to check syntax for python3
 let g:pymode_python = 'python3'

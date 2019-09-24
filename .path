@@ -1,6 +1,5 @@
-export PATH=/usr/local/opt/curl/bin:/usr/local/bin:/usr/local/sbin:$PATH
+# Use GNU curl
+export PATH=/ur/local/opt/curl/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
+# Set GOPATH
 export PATH=$PATH:${GOPATH//://bin:}/bin
-
-# Klarna
-export PATH="/Users/tobias.olsson2/src/stash.int.klarna.net/tx/tranzaxis-orchestration/team-tools/bin:$PATH"

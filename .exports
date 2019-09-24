@@ -19,8 +19,6 @@ export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-export LANG=en_US.utf8
-
 export GOPATH=$HOME
 
 export GOBIN=$GOPATH/bin

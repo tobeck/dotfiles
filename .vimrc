@@ -49,8 +49,21 @@ let g:NERDTreeWinSize=50
 " Set python-mode to check syntax for python3
 let g:pymode_python = 'python3'
 
+" Python indent
+filetype indent plugin on
+
 " 80 chars/line
 set textwidth=0
 if exists('&colorcolumn')
   set colorcolumn=88
 endif
+
+"python with virtualenv support
+" py << EOF
+" import os
+" import sys
+" if 'VIRTUAL_ENV' in os.environ:
+"   project_base_dir = os.environ['VIRTUAL_ENV']
+"   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"   execfile(activate_this, dict(__file__=activate_this))
+" EOF

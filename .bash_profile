@@ -37,7 +37,7 @@ done
 
 # Prefer US English and use UTF-8.
 export LC_ALL="en_US.UTF-8"
-export LANG="en_US"
+export LANG="en_US.UTF-8"
 
 # if possible, add tab completion for many more commands.
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
@@ -50,11 +50,6 @@ export TERM='screen-256color'
 
 set editing-mode vi
 set keymap vi-command
-
-#TODO: Move work related to its own files.
-source "/Users/tobias.olsson2/src/stash.int.klarna.net/tx/tranzaxis-orchestration/team-tools/helpers"
-source "/Users/tobias.olsson2/src/stash.int.klarna.net/tx/tranzaxis-orchestration/terraform/aws_tf_helpers"
-source "/Users/tobias.olsson2/src/stash.int.klarna.net/tx/tranzaxis-explorer/explorer-helpers"
 
 # Reload tmux configuration.
 tmux source-file ~/.tmux.conf

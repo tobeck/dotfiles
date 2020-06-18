@@ -1,76 +1,11 @@
-# Run this after editing any of your dotfiles
-alias src='source ~/.bashrc'
-alias :q='exit'
-
-alias wget="curl -O"
-
-alias l='ls -lartp'
-alias la='ls -la'
-alias lg='ls -la | grep'
-alias hg='history | grep'
-
-# .. is one of my most used commands
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-
-alias dotfiles='cd ~/src/tobeck.github.com/dotfiles'
-
-alias cl='clear'
-
-alias lc='wc -l'
-
-# Git Specific
-# git commit all with message -- no quotes needed
-function gcm() { git commit -m "$*"; }
-alias gs='git status -sb'
-alias ga='git add -p'
-alias gb='git branch'
-alias gbg='git branch | grep'
-alias gd='git diff'
-alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-alias grim="git rebase -i master"
-alias gcl="git config --list"
-
-# gitk without the shell spew
-alias gk='gitk --all > /dev/null 2>&1 &'
-alias td='git diff | grep TODO'
-alias gap='git add -p'
-alias g-='git checkout -'
-alias gdom='git diff origin/master'
-
-alias p='python'
-alias python='python3'
-
-# If you're reading this and you aren't Keegan, do this. Trust me.
-alias ali='vim ~/src/tobeck.github.com/dotfiles/.aliases'
-alias dotup='cd ~/src/tobeck.github.com/dotfiles && ./bootstrap.sh && cd -'
-
-# tmux stuff
-alias t='tmux'
-alias tmux="TERM=screen-256color-bce tmux"
-
-# necessary when using tmux: set -g default-terminal "screen-256color"
-# so things like top still work when SSHed to a remote host
-alias ssh='TERM=xterm ssh'
-
-# Misc:
-alias timenow='date +"%s"'
-
-alias duh='du -h'
-
-# Tmux
-alias tns='tmux new-session -s'
-
-alias tp='find ~/.tmuxp/* -type f | fzf-tmux | xargs tmuxp load -y'
-
 # aliases for the different pathes for pass
 alias pass-klarna='export PASSWORD_STORE_DIR=$HOME/.password-store-klarna'
 alias pass-tobeck='export PASSWORD_STORE_DIR=$HOME/.password-store-tobeck'
 alias pass-reset='export PASSWORD_STORE_DIR=$HOME/.password-store/'
 
-# Git configuration for Klarna repos
+# alias for sourcing dotfiles
+alias dotup='cd ~/src/github.com/tobeck/dotfiles && ./bootstrap.sh && cd -'
+
+# Git configuration
 alias git-work='git config user.name "Tobias Becker Olsson" && git config user.email "tobias.olsson2@klarna.com" && git config commit.gpgsign true && git config user.signingkey DC3AC62C44B13BFCC4E4A0565407A57FEEC27277'
 alias git-tobeck='git config user.name "tobeck" && git config user.email "tobias.becker.olsson@gmail.com" && git config commit.gpgsign true && git config user.signingkey 76D81FD6667781A7EAB45CA1F59A4D32F709D441'
-
-alias gpg='gpg2'

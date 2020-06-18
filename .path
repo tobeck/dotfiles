@@ -3,3 +3,11 @@ export PATH=/ur/local/opt/curl/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 # Set GOPATH
 export PATH=$PATH:${GOPATH//://bin:}/bin
+
+export GOPATH=$HOME
+#export GOBIN=$GOPATH/bin
+#export PATH=$PATH:$GOBIN
+
+export PYTHONPATH="/usr/local/Cellar/python/3.7.0/bin/python3:$PYTHONPATH"
+
+export PATH="/Users/tobias.olsson2/src/stash.int.klarna.net/tx/tranzaxis-orchestration/team-tools/bin:$PATH"

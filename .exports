@@ -18,10 +18,3 @@ export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 # colorful colors in iterm
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
-
-export GOPATH=$HOME
-
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN
-
-export PYTHONPATH="/usr/local/Cellar/python/3.7.0/bin/python3:$PYTHONPATH"

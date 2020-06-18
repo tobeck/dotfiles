@@ -42,3 +42,11 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`
+# * ~/.extra can be used for other settings you don’t want to commit
+for file in ~/.{path,exports,aliases}; do
+    [ -r "$file" ] && source "$file" && echo "sourced $file"
+done
+unset file

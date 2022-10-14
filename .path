@@ -10,4 +10,4 @@ export GOPATH=$HOME
 
 export PYTHONPATH="/usr/local/Cellar/python/3.7.0/bin/python3:$PYTHONPATH"
 
-export PATH="/Users/tobias.olsson2/src/stash.int.klarna.net/tx/tranzaxis-orchestration/team-tools/bin:$PATH"
+export PATH="/Users/$USER/src/stash.int.klarna.net/tx/tranzaxis-orchestration/team-tools/bin:$PATH"

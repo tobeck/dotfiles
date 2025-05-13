@@ -44,14 +44,6 @@ done
 DOTFILES_ALREADY_LOADED=1
 
 # ----------------------------------------
-# Pyenv (lean version)
-# ----------------------------------------
-if command -v pyenv >/dev/null 2>&1; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  eval "$(pyenv init - --no-rehash)"
-fi
-
-# ----------------------------------------
 # Lazy-load NVM
 # ----------------------------------------
 autoload -U add-zsh-hook

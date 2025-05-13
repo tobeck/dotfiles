@@ -1,20 +1,40 @@
-# Make vim the default editor
+# ----------------------------------------
+# Editor
+# ----------------------------------------
 export EDITOR="vim"
 
-# Don’t clear the screen after quitting a manual page
+# ----------------------------------------
+# Man Pages
+# ----------------------------------------
 export MANPAGER="less -X"
+export LESS_TERMCAP_md="$ORANGE"  # Highlight section titles (if $ORANGE is set elsewhere)
 
-# Highlight section titles in manual pages
-export LESS_TERMCAP_md="$ORANGE"
-
-# Larger bash history (allow 32³ entries; default is 500)
+# ----------------------------------------
+# Shell History
+# ----------------------------------------
 export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
 export HISTCONTROL=ignoredups
-
-# Make some commands not show up in history
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 
-# colorful colors in iterm
+# ----------------------------------------
+# Terminal Colors (iTerm2, etc.)
+# ----------------------------------------
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+
+# ----------------------------------------
+# Poetry
+# ----------------------------------------
+# Add Poetry to PATH (adjust if installed differently)
+export PATH="$HOME/.local/bin:$PATH"
+
+# Optional: Poetry shell completions
+# Uncomment if you want completions and Poetry is installed this way
+# eval "$(poetry completions zsh)"
+
+# ----------------------------------------
+# Miscellaneous
+# ----------------------------------------
+# Prevent core dumps (if you care about system performance/stability)
+ulimit -c 0

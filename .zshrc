@@ -1,24 +1,26 @@
 # ----------------------------------------
-# Powerlevel10k Instant Prompt — MUST BE FIRST
+# Powerlevel10k Instant Prompt (MUST BE FIRST)
 # ----------------------------------------
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # ----------------------------------------
-# Basic Environment
+# Environment Setup
 # ----------------------------------------
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
+export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$HOME/.local/bin:$PATH"
 
 # ----------------------------------------
-# Antigen + Powerlevel10k Setup
+# Antigen Plugin Manager
 # ----------------------------------------
 ANTIGEN="$HOME/src/github.com/tobeck/dotfiles/antigen.zsh"
 [[ -f "$ANTIGEN" ]] || curl -L git.io/antigen > "$ANTIGEN"
 source "$ANTIGEN"
 
 antigen use oh-my-zsh
+
+# Load theme first for proper Powerlevel10k init
 antigen theme romkatv/powerlevel10k
 
 # Plugins
@@ -26,25 +28,35 @@ antigen bundle git
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-# Apply Antigen config
+# Apply all antigen bundles
 antigen apply
 
 # ----------------------------------------
-# Powerlevel10k Config (after antigen apply)
+# Powerlevel10k Config (after antigen)
 # ----------------------------------------
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # ----------------------------------------
-# Dotfile Sourcing (safe)
+# Load Custom Dotfiles
 # ----------------------------------------
 for file in ~/.{path,exports,aliases}; do
-  [[ -r "$file" && -z "$DOTFILES_ALREADY_LOADED" ]] && source "$file"
+  [[ -r "$file" ]] && source "$file"
 done
-DOTFILES_ALREADY_LOADED=1
+[[ -f ~/.extra ]] && source ~/.extra
 
 # ----------------------------------------
-# Lazy-load NVM
+# Python: pyenv Setup
+# ----------------------------------------
+if command -v pyenv >/dev/null 2>&1; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
+fi
+
+# ----------------------------------------
+# Node: NVM Lazy Load
 # ----------------------------------------
 autoload -U add-zsh-hook
 load-nvm() {
@@ -56,7 +68,7 @@ load-nvm() {
 add-zsh-hook precmd load-nvm
 
 # ----------------------------------------
-# Kubernetes Completion + Alias (no slow check)
+# Kubernetes: Completion + Alias
 # ----------------------------------------
 if command -v kubectl >/dev/null 2>&1; then
   source <(kubectl completion zsh)
@@ -64,7 +76,7 @@ if command -v kubectl >/dev/null 2>&1; then
 fi
 
 # ----------------------------------------
-# Editor Pref
+# Editor
 # ----------------------------------------
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -73,21 +85,13 @@ else
 fi
 
 # ----------------------------------------
-# Conditional tmux start
+# FZF (if installed)
 # ----------------------------------------
-if [[ -n "$ITERM_PROFILE" && -z "$TMUX" && "$TERM_PROGRAM" != "vscode" ]]; then
-  exec tmux
-fi
-
-# ----------------------------------------
-# tmux Plugin Manager
-# ----------------------------------------
-TPM_DIR="$HOME/.tmux/plugins/tpm"
-[[ -d "$TPM_DIR" ]] || git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
-
-if [[ -n "$TMUX" ]]; then
-  tmux source-file ~/.tmux.conf
-fi
-
-# FZF key bindings and fuzzy history search
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+
+# ----------------------------------------
+# Conditional tmux Auto-launch (safe)
+# ----------------------------------------
+if command -v tmux >/dev/null 2>&1 && [[ -z "$TMUX" && "$TERM_PROGRAM" == "iTerm.app" ]]; then
+  tmux attach -t default || tmux new -s default
+fi

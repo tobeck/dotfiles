@@ -1,16 +1,17 @@
 # ----------------------------------------
-# Base PATH setup
+# Base PATH
 # ----------------------------------------
 export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$HOME/.local/bin:$PATH"
 
 # ----------------------------------------
-# Homebrew (if using Apple Silicon)
+# Homebrew (Apple Silicon only)
 # ----------------------------------------
-# Uncomment if you’re on M1/M2 and need it
-# eval "$(/opt/homebrew/bin/brew shellenv)"
+if [ -d "/opt/homebrew" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # ----------------------------------------
-# pyenv (Python version manager)
+# pyenv (PATH and early init for login shells)
 # ----------------------------------------
 if command -v pyenv >/dev/null 2>&1; then
   export PYENV_ROOT="$HOME/.pyenv"
@@ -19,8 +20,11 @@ if command -v pyenv >/dev/null 2>&1; then
 fi
 
 # ----------------------------------------
-# NVM (Node version manager)
+# Poetry (optional, depends on install method)
+# ----------------------------------------
+export PATH="$HOME/.local/bin:$PATH"
+
+# ----------------------------------------
+# NVM path (shell loads it lazily via zshrc)
 # ----------------------------------------
 export NVM_DIR="$HOME/.nvm"
-[[ -s "/opt/homebrew/opt/nvm/nvm.sh" ]] && source "/opt/homebrew/opt/nvm/nvm.sh"
-[[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]] && source "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"

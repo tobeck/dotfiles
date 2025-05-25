@@ -7,3 +7,61 @@ alias dotup='cd ~/src/github.com/tobeck/dotfiles && ./bootstrap.sh && cd -'
 
 # Git configuration
 alias git-tobeck='git config user.name "tobeck" && git config user.email "tobias.becker.olsson@gmail.com" && git config commit.gpgsign true && git config user.signingkey 76D81FD6667781A7EAB45CA1F59A4D32F709D441'
+
+# ----------------------------------------
+# Safer default commands using modern tools
+# ----------------------------------------
+
+# Better ls
+if command -v eza >/dev/null 2>&1; then
+  alias ls='eza --icons'
+  alias ll='eza -lah --icons'
+  alias la='eza -a --icons'
+  alias lt='eza --tree --level=2 --icons'
+else
+  alias ls='ls -GFh'
+  alias ll='ls -lAh'
+fi
+
+# Better cat
+if command -v bat >/dev/null 2>&1; then
+  alias cat='bat'
+fi
+
+# Better grep
+if command -v rg >/dev/null 2>&1; then
+  alias grep='rg'
+fi
+
+# Better find
+if command -v fd >/dev/null 2>&1; then
+  alias find='fd'
+fi
+
+# Smarter cd (zoxide)
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+  alias cd='z'       # Use `z` instead of `cd` to jump by usage frequency
+  alias cdi='zi'     # Interactive cd
+fi
+
+# Git shortcuts
+alias gs='git status'
+alias gl='git log --oneline --graph --decorate'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gb='git branch'
+
+# Tmux
+alias ta='tmux attach -t'
+alias tn='tmux new -s'
+alias tl='tmux ls'
+alias tk='tmux kill-session -t'
+
+# Poetry shortcuts
+alias pr='poetry run'
+alias ps='poetry shell'
+alias pi='poetry install'
+alias pa='poetry add'
+alias pu='poetry update'

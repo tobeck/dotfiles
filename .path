@@ -1,8 +1,26 @@
-# Use GNU curl
-export PATH=/ur/local/opt/curl/bin:/usr/local/bin:/usr/local/sbin:$PATH
+# ----------------------------------------
+# Use Homebrew curl if installed (correct typo in /usr)
+# ----------------------------------------
+if [[ -d /usr/local/opt/curl/bin ]]; then
+  export PATH="/usr/local/opt/curl/bin:$PATH"
+fi
 
-# Set GOPATH
-export PATH=$PATH:${GOPATH//://bin:}/bin
+# ----------------------------------------
+# Ensure Homebrew and sbin are prioritized
+# ----------------------------------------
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
-# Set rancher desktop path
+# ----------------------------------------
+# Set GOPATH binaries
+# Safely append all GOPATH/bin entries (handles colon-separated GOPATHs)
+# ----------------------------------------
+if [[ -n "$GOPATH" ]]; then
+  for p in ${(s/:/)GOPATH}; do
+    export PATH="$PATH:$p/bin"
+  done
+fi
+
+# ----------------------------------------
+# Rancher Desktop
+# ----------------------------------------
 export PATH="$HOME/.rd/bin:$PATH"

@@ -88,3 +88,6 @@ TPM_DIR="$HOME/.tmux/plugins/tpm"
 if [[ -n "$TMUX" ]]; then
   tmux source-file ~/.tmux.conf
 fi
+
+# FZF key bindings and fuzzy history search
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
